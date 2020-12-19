@@ -27,3 +27,5 @@ ERROR: Could not find a valid gem 'cocoapods' (>= 0) in any repository
 - Solved by allowing Xcode to complete install of simulator then shut down Xcode and all terminal instances. Restarted computer, opened terminal and entered `sudo gem install cocoapods`
 - But then is wasn't solved, I ended up using `brew install cocoapods` and I think that did it.
 # STOP after installing cocoapods
+
+needed to run `pod install` from ios directory within project's root directory
