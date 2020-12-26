@@ -8,6 +8,7 @@
 
 import React from 'react';
 import {
+  ImageBackground,
   SafeAreaView,
   StyleSheet,
   ScrollView,
@@ -17,12 +18,15 @@ import {
 } from 'react-native';
 
 import {
-  Header,
   LearnMoreLinks,
   Colors,
   DebugInstructions,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+
+import Header from './components/TestHeader';
+
+const image = './images/ascent-test-bg.jpg';
 
 const App: () => React$Node = () => {
   return (
@@ -39,9 +43,7 @@ const App: () => React$Node = () => {
             </View>
           )}
           <View style={styles.body}>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Ascent Sobriety!</Text>
-            </View>
+            <ImageBackground source={image} style={styles.bgImage} />
             <View style={styles.sectionContainer}>
               <Text style={styles.sectionTitle}>Step One</Text>
               <Text style={styles.sectionDescription}>
@@ -103,6 +105,11 @@ const styles = StyleSheet.create({
   },
   highlight: {
     fontWeight: '700',
+  },
+  bgImage: {
+    flex: 1,
+    resizeMode: 'cover',
+    justifyContent: 'center',
   },
   footer: {
     color: Colors.dark,
