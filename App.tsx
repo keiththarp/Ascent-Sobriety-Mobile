@@ -8,13 +8,13 @@
 
 import React from 'react';
 import {
-  ImageBackground,
   SafeAreaView,
   StyleSheet,
   ScrollView,
   View,
   Text,
   StatusBar,
+  ImageBackground,
 } from 'react-native';
 
 import {
@@ -26,29 +26,28 @@ import {
 
 import Header from './components/TestHeader';
 
-const image = './images/ascent-test-bg.jpg';
+const bgImage = './assets/images/ascent-test-bg.jpg';
 
 const App: () => React$Node = () => {
   return (
     <>
       <StatusBar barStyle="dark-content" />
       <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
+        <ScrollView contentInsetAdjustmentBehavior="automatic">
           <Header />
-          {global.HermesInternal == null ? null : (
-            <View style={styles.engine}>
-              <Text style={styles.footer}>Engine: Hermes</Text>
+          <ImageBackground
+            style={styles.backgroundImage}
+            source={require('./assets/images/ascent-test-bg.jpg')}>
+            <View>
+              <Text>Hey There! </Text>
             </View>
-          )}
+          </ImageBackground>
           <View style={styles.body}>
-            <ImageBackground source={image} style={styles.bgImage} />
             <View style={styles.sectionContainer}>
               <Text style={styles.sectionTitle}>Step One</Text>
               <Text style={styles.sectionDescription}>
-                Edit <Text style={styles.highlight}>App.js</Text> to change this
-                screen and then come back to see your edits.
+                Edit <Text style={styles.highlight}>App.js</Text> to change
+                  this screen and then come back to see your edits.
               </Text>
             </View>
             <View style={styles.sectionContainer}>
@@ -71,6 +70,7 @@ const App: () => React$Node = () => {
             </View>
             <LearnMoreLinks />
           </View>
+
         </ScrollView>
       </SafeAreaView>
     </>
@@ -78,8 +78,12 @@ const App: () => React$Node = () => {
 };
 
 const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: Colors.lighter,
+  backgroundImage: {
+    flex: 1,
+    width: '100%',
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   engine: {
     position: 'absolute',
@@ -105,11 +109,6 @@ const styles = StyleSheet.create({
   },
   highlight: {
     fontWeight: '700',
-  },
-  bgImage: {
-    flex: 1,
-    resizeMode: 'cover',
-    justifyContent: 'center',
   },
   footer: {
     color: Colors.dark,
