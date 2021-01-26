@@ -40,3 +40,6 @@ const MainStackNavigator = () => {
 }
 
 export default MainStackNavigator;
+
+//This was helpful:
+//https://heartbeat.fritz.ai/getting-started-with-stack-navigator-using-react-navigation-5-in-react-native-and-expo-apps-4c516becaee1
