@@ -1,38 +1,17 @@
-import { StatusBar } from 'expo-status-bar';
+import 'react-native-gesture-handler';
 import React from 'react';
+// import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+
+import MainStackNavigator from './src/navigation/MainStackNavigator';
+
+// const Tab = createBottomTabNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Ascent Sobriety</Text>
-      <Text style={styles.mobile}>Mobile</Text>
-      <View style={styles.hr} />
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <MainStackNavigator />
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontSize: 32,
-    fontWeight: 'bold',
-  },
-  mobile: {
-    fontSize: 40,
-    fontWeight: 'bold',
-  },
-  hr: {
-    borderBottomWidth: 1,
-    borderBottomColor: 'black',
-    width: '100%',
-    marginBottom: 15,
-  },
-});
+// For bottom navigation: https://aboutreact.com/react-native-bottom-navigation/

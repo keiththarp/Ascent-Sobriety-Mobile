@@ -4,5 +4,7 @@
   "packagerPort": 19000,
   "expoServerNgrokUrl": null,
   "packagerNgrokUrl": null,
-  "ngrokPid": null
+  "ngrokPid": null,
+  "packagerPid": null,
+  "webpackServerPort": null
 }
