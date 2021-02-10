@@ -5,6 +5,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
 import { User } from './user/user.entity';
+import { QuoteSelection } from './quote-selection/quote-selection.entity';
 
 import { UserModule } from './user/user.module';
 import { QuoteSelectionModule } from './quote-selection/quote-selection.module';
@@ -18,7 +19,7 @@ import { QuoteSelectionModule } from './quote-selection/quote-selection.module';
       username: process.env.DB_USERNAME,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_DATABASE,
-      entities: [User],
+      entities: [User, QuoteSelection],
       synchronize: true,
     }),
     UserModule,
