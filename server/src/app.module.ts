@@ -7,6 +7,7 @@ import { AppService } from './app.service';
 import { User } from './user/user.entity';
 
 import { UserModule } from './user/user.module';
+import { QuoteSelectionModule } from './quote-selection/quote-selection.module';
 
 @Module({
   imports: [
@@ -20,7 +21,8 @@ import { UserModule } from './user/user.module';
       entities: [User],
       synchronize: true,
     }),
-    UserModule
+    UserModule,
+    QuoteSelectionModule
   ],
   controllers: [AppController],
   providers: [AppService],
