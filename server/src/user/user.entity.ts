@@ -1,4 +1,5 @@
 import { JournalEntry } from 'src/journal-entry/journal-entry.entity';
+import { TrophyCase } from 'src/trophy-case/trophy-case.entity';
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 
 @Entity()
@@ -32,4 +33,7 @@ export class User {
 
   @OneToMany(() => JournalEntry, journalEntry => journalEntry.user)
   journalEntries: JournalEntry;
+
+  @OneToMany(() => TrophyCase, trophycase => trophycase.user)
+  trophyCases: TrophyCase;
 }
