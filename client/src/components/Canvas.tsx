@@ -3,7 +3,7 @@ import React from 'react';
 
 import { View, ImageBackground, StyleSheet } from 'react-native';
 
-const Canvas = (props: any) => {
+const Canvas: React.FC = (props) => {
   return (
     <ImageBackground source={require('../../assets/temp-ascent-bg.jpg')} style={styles.canvasImage}>
       {props.children}

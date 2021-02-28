@@ -12,7 +12,19 @@ const Stack = createStackNavigator();
 const MainStackNavigator = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='Home'>
+      {/* when we want to consider adding the logo to the header - https://stackoverflow.com/questions/44097144/react-navigation-use-image-in-header */}
+      <Stack.Navigator
+        initialRouteName='Home'
+        screenOptions={{
+          headerStyle: {
+            backgroundColor: '#395772'
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
+        }}
+      >
         <Stack.Screen
           name='Home'
           component={HomeScreen}

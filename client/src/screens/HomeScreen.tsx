@@ -10,11 +10,11 @@ const HomeScreen = (props) => {
     <Canvas>
       <View style={styles.container}>
 
-        <Text style={styles.title}>Ascent Sobriety</Text>
-        <Text style={styles.mobile}>Mobile</Text>
+        <Text style={styles.title}>Hi there, Friend!</Text>
         <View style={styles.hr} />
-        <Text style={styles.screen}>Home Screen</Text>
-        <Text>Open up App.tsx to start working on your app!</Text>
+        <Text style={styles.screen}>Check In Page</Text>
+        <Text>How are you feeling today?</Text>
+
         <StatusBar style="auto" />
         <TouchableOpacity
           style={styles.buttonContainer}
@@ -42,17 +42,13 @@ const HomeScreen = (props) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
+    // justifyContent: 'center',
   },
   title: {
     fontSize: 32,
     fontWeight: 'bold',
-  },
-  mobile: {
-    fontSize: 40,
-    fontWeight: 'bold',
+    color: '#395772'
   },
   hr: {
     borderBottomWidth: 1,
@@ -66,14 +62,17 @@ const styles = StyleSheet.create({
     color: '#3A5775'
   },
   buttonContainer: {
-    backgroundColor: 'rgba(58, 87, 117, 0.45)',
+    backgroundColor: 'rgba(58, 87, 117, 0.65)',
     borderRadius: 5,
+    borderColor: 'rgba(58, 87, 117, .9)',
+    borderWidth: 1,
     padding: 10,
     margin: 20
   },
   buttonText: {
     fontSize: 20,
-    color: '#3A5775'
+    color: '#fff',
+    fontWeight: 'bold'
   }
 });
 
