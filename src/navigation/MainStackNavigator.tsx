@@ -9,32 +9,33 @@ import ResourceScreen from '../screens/ResourceScreen';
 
 const Stack = createStackNavigator();
 
-const MainStackNavigator = () => {
+const MainStackNavigator: React.FC = () => {
+  const { Navigator, Screen } = Stack;
+
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='Home'>
-        <Stack.Screen
+      <Navigator initialRouteName='Home'>
+        <Screen
           name='Home'
           component={HomeScreen}
           options={{ title: 'Ascent Mobile' }}
         />
-        <Stack.Screen
+        <Screen
           name='Journal'
           component={JournalScreen}
           options={{ title: 'Journal Screen' }}
         />
-        <Stack.Screen
+        <Screen
           name='Resources'
           component={ResourceScreen}
           options={{ title: 'Resources Screen' }}
         />
-        <Stack.Screen
+        <Screen
           name='About'
           component={AboutScreen}
           options={{ title: 'About Screen' }}
         />
-
-      </Stack.Navigator>
+      </Navigator>
     </NavigationContainer>
   )
 }
