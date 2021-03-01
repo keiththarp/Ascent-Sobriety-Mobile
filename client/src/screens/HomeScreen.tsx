@@ -2,7 +2,9 @@ import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { Text, View, TouchableOpacity, StyleSheet } from 'react-native';
 
-import Canvas from '../components/Canvas'
+import Colors from '../constants/Colors.json';
+import Canvas from '../components/Canvas';
+import Card from '../components/Card';
 
 const HomeScreen = (props) => {
   const { navigation } = props;
@@ -13,7 +15,9 @@ const HomeScreen = (props) => {
         <Text style={styles.title}>Hi there, Friend!</Text>
         <View style={styles.hr} />
         <Text style={styles.screen}>Check In Page</Text>
-        <Text>How are you feeling today?</Text>
+        <Card>
+          <Text style={styles.bodyText}>How are you feeling today?</Text>
+        </Card>
 
         <StatusBar style="auto" />
         <TouchableOpacity
@@ -43,12 +47,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    // justifyContent: 'center',
   },
   title: {
     fontSize: 32,
     fontWeight: 'bold',
     color: '#395772'
+  },
+  bodyText: {
+    color: '#fff'
   },
   hr: {
     borderBottomWidth: 1,
@@ -62,12 +68,14 @@ const styles = StyleSheet.create({
     color: '#3A5775'
   },
   buttonContainer: {
-    backgroundColor: 'rgba(58, 87, 117, 0.65)',
+    alignItems: 'center',
+    backgroundColor: Colors.primaryBG,
     borderRadius: 5,
-    borderColor: 'rgba(58, 87, 117, .9)',
+    borderColor: Colors.primaryBorder,
     borderWidth: 1,
     padding: 10,
-    margin: 20
+    margin: 20,
+    width: 300
   },
   buttonText: {
     fontSize: 20,
