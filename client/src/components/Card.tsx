@@ -13,6 +13,8 @@ const Card: React.FC = (props) => {
 
 const styles = StyleSheet.create({
   cardContainer: {
+    alignItems: 'center',
+    justifyContent: 'center',
     backgroundColor: 'rgba(58, 87, 117, 0.65)',
     borderRadius: 5,
     borderColor: 'rgba(58, 87, 117, .9)',
