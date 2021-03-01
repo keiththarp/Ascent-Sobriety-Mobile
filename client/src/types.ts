@@ -1,6 +1,6 @@
 import { NavigatorScreenParams } from "@react-navigation/native";
 
-export type TopNavigatorParamsList = {
+export type TabNavigatorParamsList = {
   Home: undefined
   Journal: undefined
   Resources: undefined
@@ -8,5 +8,5 @@ export type TopNavigatorParamsList = {
 }
 
 export type RootNavigatorParamsList = {
-  Main: NavigatorScreenParams<TopNavigatorParamsList>
+  Main: NavigatorScreenParams<TabNavigatorParamsList>
 }

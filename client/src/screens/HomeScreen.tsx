@@ -3,9 +3,9 @@ import { StatusBar } from 'expo-status-bar';
 import { Text, View, TouchableOpacity, StyleSheet } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
 
-import { RootNavigatorParamsList, TopNavigatorParamsList } from '../types'
+import { RootNavigatorParamsList, TabNavigatorParamsList } from '../types'
 interface HomeScreenProps {
-  navigation: StackNavigationProp<TopNavigatorParamsList, 'Home'>
+  navigation: StackNavigationProp<TabNavigatorParamsList, 'Home'>
 }
 
 const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
