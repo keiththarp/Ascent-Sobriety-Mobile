@@ -50,7 +50,6 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     alignItems: 'center',
   },
   title: {
@@ -62,9 +61,9 @@ const styles = StyleSheet.create({
     color: '#fff'
   },
   hr: {
-    borderBottomWidth: 1,
-    borderBottomColor: 'black',
-    width: '100%',
+    borderBottomWidth: 3,
+    borderBottomColor: 'white',
+    width: 100,
     marginBottom: 15,
   },
   screen: {
@@ -80,7 +79,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     padding: 10,
     margin: 20,
-    width: 300
+    width: '75%'
   },
   buttonText: {
     fontSize: 20,
