@@ -1,8 +1,14 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { Text, View, Button, StyleSheet } from 'react-native';
+import { StackNavigationProp } from '@react-navigation/stack';
 
-const AboutScreen = () => {
+import { RootNavigatorParamsList, TabNavigatorParamsList } from '../types'
+interface AboutScreenProps {
+  navigation: StackNavigationProp<TabNavigatorParamsList, 'About'>
+}
+
+const AboutScreen: React.FC<AboutScreenProps> = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>ASCENT</Text>
