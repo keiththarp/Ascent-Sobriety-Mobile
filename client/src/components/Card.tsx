@@ -19,9 +19,12 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     borderColor: 'rgba(58, 87, 117, .9)',
     borderWidth: 1,
-    width: '75%',
+    minWidth: '85%',
+    maxWidth: '85%',
     padding: 10,
-    margin: 20,
+    marginLeft: 30,
+    // marginRight: 10,
+    marginVertical: 20
   },
 });
 

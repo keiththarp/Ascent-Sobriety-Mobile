@@ -1,0 +1,74 @@
+[
+  {
+    "id": "1",
+    "title": "Crisis Hotline",
+    "description": "24 hour mental health crisis line",
+    "link": "https://www.mentalhealth.gov/get-help/immediate-help",
+    "category": 1,
+    "createdAt": "2020-09-28 11:59:56",
+    "updatedAt": "2020-09-28 11:59:58"
+  },
+  {
+    "id": "2",
+    "title": "AA",
+    "description": "Alcoholics Anonymous web resources",
+    "link": "https://www.aa.org",
+    "category": 2,
+    "createdAt": "2020-09-28 12:00:46",
+    "updatedAt": "2020-09-28 12:00:51"
+  },
+  {
+    "id": "3",
+    "title": "NA",
+    "description": "Narcotics Anonymous",
+    "link": "https://www.na.org",
+    "category": 2,
+    "createdAt": "2020-09-28 12:01:38",
+    "updatedAt": "2020-09-28 12:01:39"
+  },
+  {
+    "id": "4",
+    "title": "Al-Anon",
+    "description": "Support for people  with alcoholism in their family and immediate community",
+    "link": "https://www.al-anon.org",
+    "category": 3,
+    "createdAt": "2020-09-28 12:04:35",
+    "updatedAt": "2020-09-28 12:04:37"
+  },
+  {
+    "id": "5",
+    "title": "Intentional Warm Line",
+    "description": "24 hour peer support mental health line",
+    "link": "https://www.nami.org/NAMI/media/NAMI-Media/BlogImageArchive/2020/NAMI-National-HelpLine-WarmLine-Directory-3-11-20.pdf",
+    "category": 3,
+    "createdAt": "2020-09-28 12:05:43",
+    "updatedAt": "2020-09-28 12:05:45"
+  },
+  {
+    "id": "6",
+    "title": "Going Public with Sobriety",
+    "description": "Article on making substance misuse non-anonymous",
+    "link": "https://www.health.harvard.edu/blog/going-public-with-sobriety-2019050316569",
+    "category": 5,
+    "createdAt": "2020-09-28 12:07:12",
+    "updatedAt": "2020-09-28 12:07:14"
+  },
+  {
+    "id": "7",
+    "title": "Can Sobriety Be Both a Health Trend and a matter of Life or Death?",
+    "description": "Article on current trends of sobriety",
+    "link": "https://www.workithealth.com/blog/can-sobriety-be-both-a-health-trend-and-a-matter-of-life-or-death/",
+    "category": 5,
+    "createdAt": "2020-09-28 12:10:55",
+    "updatedAt": "2020-09-28 12:10:56"
+  },
+  {
+    "id": "8",
+    "title": "The New Sobriety",
+    "description": "New York Times Article",
+    "link": "https://www.nytimes.com/2019/06/15/style/sober-curious.html",
+    "category": 4,
+    "createdAt": "2020-09-28 12:13:00",
+    "updatedAt": "2020-09-28 12:13:02"
+  }
+]

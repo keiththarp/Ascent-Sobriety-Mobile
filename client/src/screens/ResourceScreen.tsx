@@ -1,61 +1,53 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
+import { Text, View, StyleSheet, TouchableOpacity, Linking, SafeAreaView, FlatList } from 'react-native';
 
 import Card from '../components/Card';
 import Canvas from '../components/Canvas';
 
+import Resources from '../temp-data/resources.json'
+
+const outsideURL = (url: string) => {
+  Linking.openURL(url).catch((err) => console.log('An error occurred', err));
+};
+
+// Need to set types for the shape of this data once it's set up in the DB
+const Resource = ({ title, description, link }: any) => (
+  <Card>
+    <View style={styles.headingContainer}>
+      <Text style={styles.h2}>
+        {title}
+      </Text>
+    </View>
+    <Text style={styles.articleBody}>
+      {description}
+    </Text>
+    <TouchableOpacity style={styles.learnButton} onPress={() => { outsideURL(link) }}>
+      <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 16 }}>Learn More</Text>
+    </TouchableOpacity>
+  </Card>
+);
+
 const ResourceScreen = () => {
+
+  const renderResource = ({ item }: any) => (
+    <Resource title={item.title} description={item.description} link={item.link} />
+  );
+
   return (
     <Canvas>
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <View style={styles.hr}>
           <Text style={styles.screen}>Popular Resources</Text>
         </View>
-        <Card>
-          <View style={styles.headingContainer}>
-            <Text style={styles.h2}>
-              Can Sobriety Be Both a Health Trend and a matter of Life or Death?
-          </Text>
-          </View>
+        <FlatList
+          data={Resources}
+          renderItem={renderResource}
+          keyExtractor={item => item.id}
+        />
 
-          <Text style={styles.articleBody}>
-            Article on current trends of sobriety
-          </Text>
-          <TouchableOpacity style={styles.learnButton} onPress={() => { }}>
-            <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 16 }}>Learn More</Text>
-          </TouchableOpacity>
-        </Card>
-        <Card>
-          <View style={styles.headingContainer}>
-            <Text style={styles.h2}>
-              Can Sobriety Be Both a Health Trend and a matter of Life or Death?
-          </Text>
-          </View>
-
-          <Text style={styles.articleBody}>
-            Article on current trends of sobriety
-          </Text>
-          <TouchableOpacity style={styles.learnButton} onPress={() => { }}>
-            <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 16 }}>Learn More</Text>
-          </TouchableOpacity>
-        </Card>
-        <Card>
-          <View style={styles.headingContainer}>
-            <Text style={styles.h2}>
-              Can Sobriety Be Both a Health Trend and a matter of Life or Death?
-          </Text>
-          </View>
-
-          <Text style={styles.articleBody}>
-            Article on current trends of sobriety
-          </Text>
-          <TouchableOpacity style={styles.learnButton} onPress={() => { }}>
-            <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 16 }}>Learn More</Text>
-          </TouchableOpacity>
-        </Card>
         <StatusBar style="auto" />
-      </View>
+      </SafeAreaView>
     </Canvas>
   )
 };
@@ -105,3 +97,23 @@ const styles = StyleSheet.create({
 });
 
 export default ResourceScreen;
+
+/*
+{Resources.map((item, index) => {
+          return (
+            <Card key={index}>
+              <View style={styles.headingContainer}>
+                <Text style={styles.h2}>
+                  {item.title}
+                </Text>
+              </View>
+              <Text style={styles.articleBody}>
+                {item.description}
+              </Text>
+              <TouchableOpacity style={styles.learnButton} onPress={() => { outsideURL(item.link) }}>
+                <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 16 }}>Learn More</Text>
+              </TouchableOpacity>
+            </Card>
+          )
+        })}
+        */
