@@ -1,9 +1,15 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { Text, View, TouchableOpacity, StyleSheet } from 'react-native';
+import { StackNavigationProp } from '@react-navigation/stack';
 
-const HomeScreen = (props) => {
-  const { navigation } = props;
+import { RootNavigatorParamsList, TabNavigatorParamsList } from '../types'
+interface HomeScreenProps {
+  navigation: StackNavigationProp<TabNavigatorParamsList, 'Home'>
+}
+
+const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
+  //const { navigation } = props;
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Ascent Sobriety</Text>
