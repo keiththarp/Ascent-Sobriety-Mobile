@@ -1,13 +1,18 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { Text, View, TouchableOpacity, StyleSheet } from 'react-native';
+import { StackNavigationProp } from '@react-navigation/stack';
 
 import Colors from '../constants/Colors.json';
 import Canvas from '../components/Canvas';
 import Card from '../components/Card';
+import { RootNavigatorParamsList, TabNavigatorParamsList } from '../types'
+interface HomeScreenProps {
+  navigation: StackNavigationProp<TabNavigatorParamsList, 'Home'>
+}
 
-const HomeScreen = (props) => {
-  const { navigation } = props;
+const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
+  //const { navigation } = props;
   return (
     <Canvas>
       <View style={styles.container}>
