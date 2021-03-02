@@ -44,6 +44,7 @@ const ResourceScreen = () => {
           data={Resources}
           renderItem={renderResource}
           keyExtractor={item => item.id}
+          showsVerticalScrollIndicator={false}
         />
 
         <StatusBar style="auto" />

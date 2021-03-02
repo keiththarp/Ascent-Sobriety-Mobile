@@ -79,7 +79,8 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     padding: 10,
     margin: 20,
-    width: '75%'
+    minWidth: '85%',
+    maxWidth: '85%',
   },
   buttonText: {
     fontSize: 20,
