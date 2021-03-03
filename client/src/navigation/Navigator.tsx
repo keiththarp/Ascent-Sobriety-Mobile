@@ -6,6 +6,7 @@ import { Entypo, Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 
 import HomeScreen from '../screens/HomeScreen';
 import AboutScreen from '../screens/AboutScreen';
+import BreatheScreen from '../screens/BreatheScreen';
 import JournalScreen from '../screens/JournalScreen';
 import ResourceScreen from '../screens/ResourceScreen';
 
@@ -38,6 +39,11 @@ export const MainStackNavigator: React.FC = () => {
           component={AboutScreen}
           options={{ title: 'About Screen' }}
         />
+        <Screen
+          name='Breathe'
+          component={BreatheScreen}
+          options={{ title: 'Breathe Screen' }}
+        />
       </Navigator>
     </NavigationContainer>
   )
@@ -46,60 +52,71 @@ export const MainStackNavigator: React.FC = () => {
 export const TabNavigator: React.FC = () => {
   return (
 
-  <NavigationContainer>
-    <Tab.Navigator
-      initialRouteName='Home'
-      tabBarOptions={{
-        activeTintColor: 'grey',
-      }}
-    >
-      <Tab.Screen
-        name='Home'
-        component={HomeScreen}
-        options={{
-          title: 'Ascent Mobile',
-          tabBarLabel: 'Home',
-          tabBarIcon: ({ color, size }) => {
-            return <Entypo name="home" size={24} color="black" />
-          }
+    <NavigationContainer>
+      <Tab.Navigator
+        initialRouteName='Home'
+        tabBarOptions={{
+          activeTintColor: 'grey',
         }}
+      >
+        <Tab.Screen
+          name='Home'
+          component={HomeScreen}
+          options={{
+            title: 'Ascent Mobile',
+            tabBarLabel: 'Home',
+            tabBarIcon: ({ color, size }) => {
+              return <Entypo name="home" size={24} color="black" />
+            }
+          }}
         />
-      <Tab.Screen
-        name='Journal'
-        component={JournalScreen}
-        options={{
-          title: 'Journal Screen',
-          tabBarLabel: 'Journal',
-          tabBarIcon: ({ color, size }) => {
-            return <Ionicons name="journal" size={24} color="black" />
-          }
-        }}
-      />
-      <Tab.Screen
-        name='Resources'
-        component={ResourceScreen}
-        options={{
-          title: 'Resources Screen',
-          tabBarLabel: 'Resources',
-          tabBarIcon: ({ color, size }) => {
-            return <MaterialCommunityIcons name="wrench" size={24} color="black" />
-          }
-        }}
-      />
-      <Tab.Screen
-        name='About'
-        component={AboutScreen}
-        options={{
-          title: 'About Screen',
-          tabBarLabel: 'About',
-          tabBarIcon: ({ color, size }) => {
-            return <Ionicons name="information-circle-outline" size={24} color="black" />
-          }
-        }}
-      />
+        <Tab.Screen
+          name='Journal'
+          component={JournalScreen}
+          options={{
+            title: 'Journal Screen',
+            tabBarLabel: 'Journal',
+            tabBarIcon: ({ color, size }) => {
+              return <Ionicons name="journal" size={24} color="black" />
+            }
+          }}
+        />
+        <Tab.Screen
+          name='Resources'
+          component={ResourceScreen}
+          options={{
+            title: 'Resources Screen',
+            tabBarLabel: 'Resources',
+            tabBarIcon: ({ color, size }) => {
+              return <MaterialCommunityIcons name="wrench" size={24} color="black" />
+            }
+          }}
+        />
+        <Tab.Screen
+          name='About'
+          component={AboutScreen}
+          options={{
+            title: 'About Screen',
+            tabBarLabel: 'About',
+            tabBarIcon: ({ color, size }) => {
+              return <Ionicons name="information-circle-outline" size={24} color="black" />
+            }
+          }}
+        />
+        <Tab.Screen
+          name='Breathe'
+          component={BreatheScreen}
+          options={{
+            title: 'Breathe Screen',
+            tabBarLabel: 'Breathe',
+            tabBarIcon: ({ color, size }) => {
+              return <Ionicons name="information-circle-outline" size={24} color="black" />
+            }
+          }}
+        />
 
-    </Tab.Navigator>
-  </NavigationContainer>
+      </Tab.Navigator>
+    </NavigationContainer>
   );
 }
 

@@ -5,6 +5,7 @@ export type TabNavigatorParamsList = {
   Journal: undefined
   Resources: undefined
   About: undefined
+  Breathe: undefined
 }
 
 export type RootNavigatorParamsList = {

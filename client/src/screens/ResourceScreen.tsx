@@ -22,9 +22,11 @@ const Resource = ({ title, description, link }: any) => (
     <Text style={styles.articleBody}>
       {description}
     </Text>
-    <TouchableOpacity style={styles.learnButton} onPress={() => { outsideURL(link) }}>
-      <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 16 }}>Learn More</Text>
-    </TouchableOpacity>
+    <View>
+      <TouchableOpacity style={styles.learnButton} onPress={() => { outsideURL(link) }}>
+        <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 16 }}>Learn More</Text>
+      </TouchableOpacity>
+    </View>
   </Card>
 );
 
@@ -40,13 +42,15 @@ const ResourceScreen = () => {
         <View style={styles.hr}>
           <Text style={styles.screen}>Popular Resources</Text>
         </View>
-        <FlatList
-          data={Resources}
-          renderItem={renderResource}
-          keyExtractor={item => item.id}
-          showsVerticalScrollIndicator={false}
-        />
-
+        <View style={styles.listContainer}>
+          <FlatList
+            contentContainerStyle={styles.list}
+            data={Resources}
+            renderItem={renderResource}
+            keyExtractor={item => item.id}
+            showsVerticalScrollIndicator={false}
+          />
+        </View>
         <StatusBar style="auto" />
       </SafeAreaView>
     </Canvas>
@@ -54,6 +58,13 @@ const ResourceScreen = () => {
 };
 
 const styles = StyleSheet.create({
+  listContainer: {
+    flex: 1,
+    width: '85%'
+  },
+  list: {
+    alignItems: 'center'
+  },
   container: {
     flex: 1,
     alignItems: 'center',

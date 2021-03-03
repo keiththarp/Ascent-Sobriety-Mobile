@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     minWidth: '85%',
     maxWidth: '85%',
     padding: 10,
-    marginLeft: 30,
+    marginHorizontal: 20,
     marginVertical: 20
   },
 });

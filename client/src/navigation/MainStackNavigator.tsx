@@ -2,10 +2,11 @@ import React from 'react';
 import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import Colors from '../constants/Colors.json'
+import Colors from '../constants/Colors.json';
 import HomeScreen from '../screens/HomeScreen';
 import AboutScreen from '../screens/AboutScreen';
 import JournalScreen from '../screens/JournalScreen';
+import BreatheScreen from '../screens/BreatheScreen';
 import ResourceScreen from '../screens/ResourceScreen';
 
 const Stack = createStackNavigator();
@@ -51,6 +52,11 @@ const MainStackNavigator = () => {
           name='About'
           component={AboutScreen}
           options={{ title: 'About Screen' }}
+        />
+        <Stack.Screen
+          name='Breathe'
+          component={BreatheScreen}
+          options={{ title: 'Breathe Screen' }}
         />
 
       </Stack.Navigator>
