@@ -1,6 +1,7 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { Button, Platform, Text, Vibration, View, SafeAreaView, StyleSheet } from 'react-native';
+import Sound from 'react-native-sound'
+import { Button, Platform, Text, Vibration, View, SafeAreaView, StyleSheet, TouchableOpacity } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
 
 import Card from '../components/Card';
@@ -14,6 +15,8 @@ interface BreatheScreenProps {
 const Separator = () => {
   return <View style={Platform.OS === "android" ? styles.separator : null} />;
 }
+
+const waves = new Sound('../../assets/sounds/ocean-wave-1.mp3')
 
 const BreatheScreen: React.FC<BreatheScreenProps> = ({ navigation }) => {
   const ONE_SECOND_IN_MS = 1000;
@@ -61,14 +64,18 @@ const BreatheScreen: React.FC<BreatheScreenProps> = ({ navigation }) => {
         onPress={() => Vibration.cancel()}
         color="#FF0000"
       />
+      <TouchableOpacity onLongPress={() => Vibration.vibrate(ONE_SECOND_IN_MS)} style={styles.myButton}><Text>BREATHE</Text></TouchableOpacity>
+
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
+
   container: {
     flex: 1,
     justifyContent: "center",
+    alignItems: 'center',
     paddingTop: 44,
     padding: 8
   },
@@ -85,6 +92,17 @@ const styles = StyleSheet.create({
     marginVertical: 8,
     borderBottomColor: "#737373",
     borderBottomWidth: StyleSheet.hairlineWidth
+  },
+  buttonContainer: {
+    width: '100%'
+  },
+  myButton: {
+    backgroundColor: 'green',
+    width: 125,
+    height: 125,
+    borderRadius: 65,
+    alignItems: 'center',
+    justifyContent: 'center'
   }
 });
 
