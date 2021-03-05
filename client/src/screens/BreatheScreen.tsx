@@ -1,13 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import Sound from 'react-native-sound'
-import { Button, Platform, Text, Vibration, View, SafeAreaView, StyleSheet, TouchableOpacity } from 'react-native';
+
+import { Button, Platform, Text, Vibration, View, SafeAreaView, StyleSheet, TouchableOpacity, Animated } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
 
 import Card from '../components/Card';
 import Canvas from '../components/Canvas';
 
 import { RootNavigatorParamsList, TabNavigatorParamsList } from '../types';
+import { forModalPresentationIOS } from '@react-navigation/stack/lib/typescript/src/TransitionConfigs/CardStyleInterpolators';
 interface BreatheScreenProps {
   navigation: StackNavigationProp<TabNavigatorParamsList, 'Breathe'>
 };
@@ -16,9 +17,18 @@ const Separator = () => {
   return <View style={Platform.OS === "android" ? styles.separator : null} />;
 }
 
-const waves = new Sound('../../assets/sounds/ocean-wave-1.mp3')
-
 const BreatheScreen: React.FC<BreatheScreenProps> = ({ navigation }) => {
+
+  const value = useState(new Animated.ValueXY({ x: 1, y: 0 }))[0];
+
+  const moveBall = () => (
+    Animated.timing(value, {
+      toValue: { x: 5, y: 400 },
+      duration: 4000,
+      useNativeDriver: false
+    }).start()
+  )
+
   const ONE_SECOND_IN_MS = 1000;
 
   const PATTERN = [
@@ -32,6 +42,23 @@ const BreatheScreen: React.FC<BreatheScreenProps> = ({ navigation }) => {
 
   return (
     <SafeAreaView style={styles.container}>
+      <View style={{}}>
+        <TouchableOpacity onPress={moveBall}>
+          <Animated.View style={value.getLayout()}>
+            <View style={{
+              width: 100,
+              height: 100,
+              borderRadius: 100 / 2,
+              backgroundColor: 'red',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}
+            >
+              <Text>Press me!</Text>
+            </View>
+          </Animated.View>
+        </TouchableOpacity>
+      </View>
       <Text style={[styles.header, styles.paragraph]}>Vibration API</Text>
       <View>
         <Button title="Vibrate once" onPress={() => Vibration.vibrate()} />
