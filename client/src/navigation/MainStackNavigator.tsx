@@ -1,18 +1,38 @@
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
+import Colors from '../constants/Colors.json';
 import HomeScreen from '../screens/HomeScreen';
 import AboutScreen from '../screens/AboutScreen';
 import JournalScreen from '../screens/JournalScreen';
+import BreatheScreen from '../screens/BreatheScreen';
 import ResourceScreen from '../screens/ResourceScreen';
 
 const Stack = createStackNavigator();
 
+// DefaultTheme added to change global app background color
+const navTheme = DefaultTheme;
+navTheme.colors.background = Colors.primary;
+
 const MainStackNavigator = () => {
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName='Home'>
+    <NavigationContainer
+      theme={navTheme}
+    >
+      {/* when we want to consider adding the logo to the header - https://stackoverflow.com/questions/44097144/react-navigation-use-image-in-header */}
+      <Stack.Navigator
+        initialRouteName='Home'
+        screenOptions={{
+          headerStyle: {
+            backgroundColor: '#395772'
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
+        }}
+      >
         <Stack.Screen
           name='Home'
           component={HomeScreen}
@@ -32,6 +52,11 @@ const MainStackNavigator = () => {
           name='About'
           component={AboutScreen}
           options={{ title: 'About Screen' }}
+        />
+        <Stack.Screen
+          name='Breathe'
+          component={BreatheScreen}
+          options={{ title: 'Breathe Screen' }}
         />
 
       </Stack.Navigator>

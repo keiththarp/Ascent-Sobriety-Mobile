@@ -3,6 +3,9 @@ import { StatusBar } from 'expo-status-bar';
 import { Text, View, TouchableOpacity, StyleSheet } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
 
+import Colors from '../constants/Colors.json';
+import Canvas from '../components/Canvas';
+import Card from '../components/Card';
 import { RootNavigatorParamsList, TabNavigatorParamsList } from '../types'
 interface HomeScreenProps {
   navigation: StackNavigationProp<TabNavigatorParamsList, 'Home'>
@@ -11,54 +14,62 @@ interface HomeScreenProps {
 const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
   //const { navigation } = props;
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Ascent Sobriety</Text>
-      <Text style={styles.mobile}>Mobile</Text>
-      <View style={styles.hr} />
-      <Text style={styles.screen}>Home Screen</Text>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-      <TouchableOpacity
-        style={styles.buttonContainer}
-        onPress={() => navigation.navigate('Journal')}
-      >
-        <Text style={styles.buttonText}>Go To Journal Screen</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.buttonContainer}
-        onPress={() => navigation.navigate('Resources')}
-      >
-        <Text style={styles.buttonText}>Go To Resources Screen</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.buttonContainer}
-        onPress={() => navigation.navigate('About')}
-      >
-        <Text style={styles.buttonText}>Go To About Screen</Text>
-      </TouchableOpacity>
-    </View>
+    <Canvas>
+      <View style={styles.container}>
+
+        <Text style={styles.title}>Hi there, Friend!</Text>
+        <View style={styles.hr} />
+        <Text style={styles.screen}>Check In Page</Text>
+        <Card>
+          <Text style={styles.bodyText}>How are you feeling today?</Text>
+        </Card>
+
+        <StatusBar style="auto" />
+        <TouchableOpacity
+          style={styles.buttonContainer}
+          onPress={() => navigation.navigate('Journal')}
+        >
+          <Text style={styles.buttonText}>Go To Journal Screen</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.buttonContainer}
+          onPress={() => navigation.navigate('Resources')}
+        >
+          <Text style={styles.buttonText}>Go To Resources Screen</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.buttonContainer}
+          onPress={() => navigation.navigate('About')}
+        >
+          <Text style={styles.buttonText}>Go To About Screen</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.buttonContainer}
+          onPress={() => navigation.navigate('Breathe')}
+        >
+          <Text style={styles.buttonText}>Go To Breathe Screen</Text>
+        </TouchableOpacity>
+      </View>
+    </Canvas>
   )
 };
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
   },
   title: {
     fontSize: 32,
     fontWeight: 'bold',
+    color: '#395772'
   },
-  mobile: {
-    fontSize: 40,
-    fontWeight: 'bold',
+  bodyText: {
+    color: '#fff'
   },
   hr: {
-    borderBottomWidth: 1,
-    borderBottomColor: 'black',
-    width: '100%',
+    borderBottomWidth: 3,
+    borderBottomColor: 'white',
+    width: 100,
     marginBottom: 15,
   },
   screen: {
@@ -67,14 +78,20 @@ const styles = StyleSheet.create({
     color: '#3A5775'
   },
   buttonContainer: {
-    backgroundColor: 'rgba(58, 87, 117, 0.45)',
-    borderRadius:5,
+    alignItems: 'center',
+    backgroundColor: Colors.primaryBG,
+    borderRadius: 5,
+    borderColor: Colors.primaryBorder,
+    borderWidth: 1,
     padding: 10,
-    margin: 20
+    margin: 20,
+    minWidth: '85%',
+    maxWidth: '85%',
   },
   buttonText: {
     fontSize: 20,
-    color: '#3A5775'
+    color: '#fff',
+    fontWeight: 'bold'
   }
 });
 
