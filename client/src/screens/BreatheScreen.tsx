@@ -13,20 +13,25 @@ interface BreatheScreenProps {
   navigation: StackNavigationProp<TabNavigatorParamsList, 'Breathe'>
 };
 
-const Separator = () => {
-  return <View style={Platform.OS === "android" ? styles.separator : null} />;
-}
-
 const BreatheScreen: React.FC<BreatheScreenProps> = ({ navigation }) => {
 
-  const value = useState(new Animated.ValueXY({ x: 1, y: 0 }))[0];
+  const sizeValue = useState(new Animated.Value(100))[0];
+
 
   const moveBall = () => (
-    Animated.timing(value, {
-      toValue: { x: 5, y: 400 },
-      duration: 4000,
+    Animated.timing(sizeValue, {
+      toValue: 800,
+      duration: 2000,
       useNativeDriver: false
     }).start()
+  )
+
+  const shrinkBall = () => (
+    Animated.timing(sizeValue, {
+      toValue: 100,
+      duration: 2000,
+      useNativeDriver: false
+    }).start
   )
 
   const ONE_SECOND_IN_MS = 1000;
@@ -43,27 +48,24 @@ const BreatheScreen: React.FC<BreatheScreenProps> = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={{}}>
-        <TouchableOpacity onPress={moveBall}>
-          <Animated.View style={value.getLayout()}>
-            <View style={{
-              width: 100,
-              height: 100,
-              borderRadius: 100 / 2,
-              backgroundColor: 'red',
-              alignItems: 'center',
-              justifyContent: 'center'
-            }}
-            >
-              <Text>Press me!</Text>
-            </View>
-          </Animated.View>
-        </TouchableOpacity>
+
+        <Animated.View style={{
+          width: sizeValue,
+          height: sizeValue,
+          borderRadius: sizeValue,
+          backgroundColor: 'red',
+          alignItems: 'center',
+          justifyContent: 'center'
+        }}
+        >
+        </Animated.View>
+
       </View>
       <Text style={[styles.header, styles.paragraph]}>Vibration API</Text>
       <View>
         <Button title="Vibrate once" onPress={() => Vibration.vibrate()} />
       </View>
-      <Separator />
+
       {Platform.OS == "android"
         ? [
           <View>
@@ -72,7 +74,7 @@ const BreatheScreen: React.FC<BreatheScreenProps> = ({ navigation }) => {
               onPress={() => Vibration.vibrate(10 * ONE_SECOND_IN_MS)}
             />
           </View>,
-          <Separator />
+
         ]
         : null}
       <Text style={styles.paragraph}>Pattern: {PATTERN_DESC}</Text>
@@ -80,19 +82,21 @@ const BreatheScreen: React.FC<BreatheScreenProps> = ({ navigation }) => {
         title="Vibrate with pattern"
         onPress={() => Vibration.vibrate(PATTERN)}
       />
-      <Separator />
+
       <Button
         title="Vibrate with pattern until cancelled"
         onPress={() => Vibration.vibrate(PATTERN, true)}
       />
-      <Separator />
       <Button
         title="Stop vibration pattern"
         onPress={() => Vibration.cancel()}
         color="#FF0000"
       />
       <TouchableOpacity onLongPress={() => Vibration.vibrate(ONE_SECOND_IN_MS)} style={styles.myButton}><Text>BREATHE</Text></TouchableOpacity>
+      <TouchableOpacity onPressIn={moveBall} onPressOut={shrinkBall}>
+        <Text>Press me!</Text>
 
+      </TouchableOpacity>
     </SafeAreaView>
   );
 }
