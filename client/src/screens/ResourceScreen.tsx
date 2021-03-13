@@ -2,10 +2,12 @@ import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { Text, View, StyleSheet, TouchableOpacity, Linking, SafeAreaView, FlatList } from 'react-native';
 
+import { API_URL } from '@env';
+
 import Card from '../components/Card';
 import Canvas from '../components/Canvas';
 
-import Resources from '../temp-data/resources.json'
+import Resources from '../utils/temp-data/resources.json';
 
 const outsideURL = (url: string) => {
   Linking.openURL(url).catch((err) => console.log('An error occurred', err));
@@ -35,6 +37,14 @@ const ResourceScreen = () => {
   const renderResource = ({ item }: any) => (
     <Resource title={item.title} description={item.description} link={item.link} />
   );
+
+  // const userAPI = () => {
+  // fetch(`${process.env.API_URL}/users`)
+  //   .then(response => {
+  //     console.log(response);
+
+  //   })
+  // }
 
   return (
     <Canvas>
