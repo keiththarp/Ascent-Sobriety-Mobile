@@ -4,13 +4,16 @@ import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 
-import MainStackNavigator from './src/navigation/MainStackNavigator';
+import { MainStackNavigator, TabNavigator } from './src/navigation/Navigator';
 
 // const Tab = createBottomTabNavigator();
 
 export default function App() {
   return (
-    <MainStackNavigator />
+    <>
+      {/* <MainStackNavigator /> */}
+      <TabNavigator />
+    </>
   );
 }
 

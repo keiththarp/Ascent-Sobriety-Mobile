@@ -1,0 +1,8 @@
+{
+  "primary": "#3A5772",
+  "primaryBG": "rgba(58, 87, 117, 0.65)",
+  "primaryBorder": "rgba(58, 87, 117, .9)",
+  "secondary": "#BFF0CF",
+  "secondaryBG": "rgba(176, 243, 198, 0.65)",
+  "accent": "#f2e165"
+}
