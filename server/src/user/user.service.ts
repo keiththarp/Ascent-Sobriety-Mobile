@@ -36,6 +36,7 @@ export class UserService {
         return this.usersRepository.findOne(id);
     }
 
+        
     async userLogIn(email: string): Promise<User | undefined> {
         return this.usersRepository.findOne({ where: { email: email}})
     }

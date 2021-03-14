@@ -18,6 +18,8 @@ import { ResourcesModule } from './resources/resources.module';
 import { JournalEntryModule } from './journal-entry/journal-entry.module';
 import { TrophyCaseModule } from './trophy-case/trophy-case.module';
 import { AuthModule } from './auth/auth.module';
+import { APP_GUARD } from '@nestjs/core';
+import { JwtAuthGuard } from './auth/jwt-auth.guard';
 
 @Module({
   imports: [
