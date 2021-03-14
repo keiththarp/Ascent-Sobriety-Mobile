@@ -4,6 +4,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
+
 import { User } from './user/user.entity';
 import { QuoteSelection } from './quote-selection/quote-selection.entity';
 import { Resource } from './resources/resources.entity';
