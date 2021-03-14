@@ -16,6 +16,7 @@ import { QuoteSelectionModule } from './quote-selection/quote-selection.module';
 import { ResourcesModule } from './resources/resources.module';
 import { JournalEntryModule } from './journal-entry/journal-entry.module';
 import { TrophyCaseModule } from './trophy-case/trophy-case.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -33,7 +34,8 @@ import { TrophyCaseModule } from './trophy-case/trophy-case.module';
     QuoteSelectionModule,
     ResourcesModule,
     JournalEntryModule,
-    TrophyCaseModule
+    TrophyCaseModule,
+    AuthModule
   ],
   controllers: [AppController],
   providers: [AppService],
