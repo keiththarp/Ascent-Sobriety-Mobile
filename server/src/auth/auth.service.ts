@@ -6,8 +6,8 @@ import { UserService } from 'src/user/user.service';
 export class AuthService {
     constructor(private userService: UserService) {}
 
-    async validateUser(username: string, pass: string): Promise<any> {
-        const user = await this.userService.userLogIn(username);
+    async validateUser(email: string, pass: string): Promise<any> {
+        const user = await this.userService.userLogIn(email);
         const match = await bcrypt.compare(pass, user.password);
 
         if (match) {
