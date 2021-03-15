@@ -1,18 +1,27 @@
 import 'react-native-gesture-handler';
 import React from 'react';
+import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
+
 // import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 
-import { MainStackNavigator, TabNavigator } from './src/navigation/Navigator';
+import BottomTabNavigator from './src/navigation/TabNavigator';
+import MainStackNavigator from './src/navigation/MainStackNavigator';
+import Colors from './src/constants/Colors.json';
 
-// const Tab = createBottomTabNavigator();
+
+// DefaultTheme added to change global app background color
+const navTheme = DefaultTheme;
+navTheme.colors.background = Colors.primary;
 
 export default function App() {
   return (
     <>
-      {/* <MainStackNavigator /> */}
-      <TabNavigator />
+      <NavigationContainer theme={navTheme}>
+        {/* <MainStackNavigator /> */}
+        <BottomTabNavigator />
+      </NavigationContainer>
     </>
   );
 }

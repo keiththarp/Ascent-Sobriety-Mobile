@@ -9,6 +9,7 @@ import JournalScreen from '../screens/JournalScreen';
 import BreatheScreen from '../screens/BreatheScreen';
 import ResourceScreen from '../screens/ResourceScreen';
 import AccessScreen from '../screens/AccessScreen';
+import SignInScreen from '../screens/SignInScreen';
 
 const Stack = createStackNavigator();
 
@@ -16,57 +17,63 @@ const Stack = createStackNavigator();
 const navTheme = DefaultTheme;
 navTheme.colors.background = Colors.primary;
 
-const MainStackNavigator = () => {
-  return (
-    <NavigationContainer
-      theme={navTheme}
-    >
-      {/* when we want to consider adding the logo to the header - https://stackoverflow.com/questions/44097144/react-navigation-use-image-in-header */}
-      <Stack.Navigator
-        initialRouteName='Home'
-        screenOptions={{
-          headerStyle: {
-            backgroundColor: '#395772'
-          },
-          headerTintColor: '#fff',
-          headerTitleStyle: {
-            fontWeight: 'bold',
-          },
-        }}
-      >
-        <Stack.Screen
-          name='Access'
-          component={AccessScreen}
-          options={{ title: 'Ascent Mobile' }}
-        />
-        <Stack.Screen
-          name='Home'
-          component={HomeScreen}
-          options={{ title: 'Ascent Mobile' }}
-        />
-        <Stack.Screen
-          name='Journal'
-          component={JournalScreen}
-          options={{ title: 'Journal Screen' }}
-        />
-        <Stack.Screen
-          name='Resources'
-          component={ResourceScreen}
-          options={{ title: 'Resources Screen' }}
-        />
-        <Stack.Screen
-          name='About'
-          component={AboutScreen}
-          options={{ title: 'About Screen' }}
-        />
-        <Stack.Screen
-          name='Breathe'
-          component={BreatheScreen}
-          options={{ title: 'Breathe Screen' }}
-        />
+const MainStackNavigator: React.FC = () => {
+  // when we want to consider adding the logo to the header - https://stackoverflow.com/questions/44097144/react-navigation-use-image-in-header
 
-      </Stack.Navigator>
-    </NavigationContainer>
+  return (
+    // <NavigationContainer
+    //   theme={navTheme}
+    // >
+    <Stack.Navigator
+      initialRouteName='Home'
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: '#395772'
+        },
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+          fontWeight: 'bold',
+        },
+      }}
+    >
+      <Stack.Screen
+        name='Access'
+        component={AccessScreen}
+        options={{ title: 'Ascent Mobile' }}
+      />
+      <Stack.Screen
+        name='SignIn'
+        component={SignInScreen}
+        options={{ title: 'Ascent Mobile - Sign In' }}
+      />
+      <Stack.Screen
+        name='Home'
+        component={HomeScreen}
+        options={{ title: 'Ascent Mobile' }}
+      />
+      <Stack.Screen
+        name='Journal'
+        component={JournalScreen}
+        options={{ title: 'Journal Screen' }}
+      />
+      <Stack.Screen
+        name='Resources'
+        component={ResourceScreen}
+        options={{ title: 'Resources Screen' }}
+      />
+      <Stack.Screen
+        name='About'
+        component={AboutScreen}
+        options={{ title: 'About Screen' }}
+      />
+      <Stack.Screen
+        name='Breathe'
+        component={BreatheScreen}
+        options={{ title: 'Breathe Screen' }}
+      />
+
+    </Stack.Navigator>
+    // </NavigationContainer>
   )
 }
 
