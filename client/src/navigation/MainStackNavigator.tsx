@@ -8,6 +8,7 @@ import AboutScreen from '../screens/AboutScreen';
 import JournalScreen from '../screens/JournalScreen';
 import BreatheScreen from '../screens/BreatheScreen';
 import ResourceScreen from '../screens/ResourceScreen';
+import AccessScreen from '../screens/AccessScreen';
 
 const Stack = createStackNavigator();
 
@@ -33,6 +34,11 @@ const MainStackNavigator = () => {
           },
         }}
       >
+        <Stack.Screen
+          name='Access'
+          component={AccessScreen}
+          options={{ title: 'Ascent Mobile' }}
+        />
         <Stack.Screen
           name='Home'
           component={HomeScreen}

@@ -9,6 +9,7 @@ import AboutScreen from '../screens/AboutScreen';
 import BreatheScreen from '../screens/BreatheScreen';
 import JournalScreen from '../screens/JournalScreen';
 import ResourceScreen from '../screens/ResourceScreen';
+import AccessScreen from '../screens/AccessScreen';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -19,6 +20,11 @@ export const MainStackNavigator: React.FC = () => {
   return (
     <NavigationContainer>
       <Navigator initialRouteName='Home'>
+        <Screen
+          name='Access'
+          component={AccessScreen}
+          options={{ title: 'Ascent Mobile' }}
+        />
         <Screen
           name='Home'
           component={HomeScreen}
@@ -59,6 +65,17 @@ export const TabNavigator: React.FC = () => {
           activeTintColor: 'grey',
         }}
       >
+        <Tab.Screen
+          name='Access'
+          component={AccessScreen}
+          options={{
+            title: 'Ascent Mobile',
+            tabBarLabel: 'Access',
+            tabBarIcon: ({ color, size }) => {
+              return <Entypo name="home" size={24} color="black" />
+            }
+          }}
+        />
         <Tab.Screen
           name='Home'
           component={HomeScreen}
