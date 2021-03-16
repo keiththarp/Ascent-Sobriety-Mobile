@@ -19,6 +19,7 @@ export class ResourcesService {
         resource.linkToResource = createResourceDTO.linkToResource;
         resource.imageLink = createResourceDTO.imageLink;
         resource.phoneNumber = createResourceDTO.phoneNumber;
+        resource.category = createResourceDTO.category;
 
         return this.resourceRepository.save(resource);
     }
