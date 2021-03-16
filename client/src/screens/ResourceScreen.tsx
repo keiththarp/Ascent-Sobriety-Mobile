@@ -1,18 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { Text, View, StyleSheet, TouchableOpacity, Linking, SafeAreaView, FlatList } from 'react-native';
+import { Text, View, StyleSheet, TouchableOpacity, Linking, SafeAreaView, FlatList, ActivityIndicator } from 'react-native';
+
+import { API_URL } from '@env';
 
 import Card from '../components/Card';
 import Canvas from '../components/Canvas';
 
-import Resources from '../temp-data/resources.json'
+import Resources from '../utils/temp-data/resources.json';
 
 const outsideURL = (url: string) => {
   Linking.openURL(url).catch((err) => console.log('An error occurred', err));
+
 };
 
 // Need to set types for the shape of this data once it's set up in the DB
-const Resource = ({ title, description, link }: any) => (
+const Resource = ({ title, introText, linkToResource }: any) => (
   <Card>
     <View style={styles.headingContainer}>
       <Text style={styles.h2}>
@@ -20,10 +23,10 @@ const Resource = ({ title, description, link }: any) => (
       </Text>
     </View>
     <Text style={styles.articleBody}>
-      {description}
+      {introText}
     </Text>
     <View>
-      <TouchableOpacity style={styles.learnButton} onPress={() => { outsideURL(link) }}>
+      <TouchableOpacity style={styles.learnButton} onPress={() => { outsideURL(linkToResource) }}>
         <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 16 }}>Learn More</Text>
       </TouchableOpacity>
     </View>
@@ -32,8 +35,21 @@ const Resource = ({ title, description, link }: any) => (
 
 const ResourceScreen = () => {
 
+  const [isLoading, setIsLoading] = useState(true);
+  const [resources, setResources] = useState([]);
+
+  const getResources = async () => {
+    const call = await fetch(`${API_URL}/api/resources`);
+    const callResources = await call.json();
+    setResources(callResources)
+  }
+
+  useEffect(() => {
+    getResources();
+  }, []);
+
   const renderResource = ({ item }: any) => (
-    <Resource title={item.title} description={item.description} link={item.link} />
+    <Resource title={item.title} introText={item.introText} link={item.link} />
   );
 
   return (
@@ -45,9 +61,9 @@ const ResourceScreen = () => {
         <View style={styles.listContainer}>
           <FlatList
             contentContainerStyle={styles.list}
-            data={Resources}
+            data={resources}
             renderItem={renderResource}
-            keyExtractor={item => item.id}
+            keyExtractor={item => item._id}
             showsVerticalScrollIndicator={false}
           />
         </View>
@@ -120,7 +136,7 @@ export default ResourceScreen;
                 </Text>
               </View>
               <Text style={styles.articleBody}>
-                {item.description}
+                {item.introText}
               </Text>
               <TouchableOpacity style={styles.learnButton} onPress={() => { outsideURL(item.link) }}>
                 <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 16 }}>Learn More</Text>
