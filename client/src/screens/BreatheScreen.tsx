@@ -1,6 +1,5 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import Sound from 'react-native-sound'
 import { Button, Platform, Text, Vibration, View, SafeAreaView, StyleSheet, TouchableOpacity } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
 
@@ -15,8 +14,6 @@ interface BreatheScreenProps {
 const Separator = () => {
   return <View style={Platform.OS === "android" ? styles.separator : null} />;
 }
-
-const waves = new Sound('../../assets/sounds/ocean-wave-1.mp3')
 
 const BreatheScreen: React.FC<BreatheScreenProps> = ({ navigation }) => {
   const ONE_SECOND_IN_MS = 1000;
