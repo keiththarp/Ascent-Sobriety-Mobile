@@ -19,4 +19,7 @@ export class Resource {
 
     @Column()
     phoneNumber: number;
+
+    @Column()
+    category: number;
 }

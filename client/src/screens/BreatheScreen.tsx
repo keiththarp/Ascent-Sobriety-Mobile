@@ -33,7 +33,6 @@ const BreatheScreen: React.FC<BreatheScreenProps> = ({ navigation }) => {
       useNativeDriver: false
     }).start
   )
-
   const ONE_SECOND_IN_MS = 1000;
 
   const PATTERN = [
