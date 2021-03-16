@@ -11,6 +11,7 @@ import Resources from '../utils/temp-data/resources.json';
 
 const outsideURL = (url: string) => {
   Linking.openURL(url).catch((err) => console.log('An error occurred', err));
+
 };
 
 // Need to set types for the shape of this data once it's set up in the DB
@@ -38,7 +39,7 @@ const ResourceScreen = () => {
   const [resources, setResources] = useState([]);
 
   const getResources = async () => {
-    const call = await fetch(`${API_URL}api/resources`);
+    const call = await fetch(`${API_URL}/api/resources`);
     const callResources = await call.json();
     setResources(callResources)
   }
