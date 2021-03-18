@@ -10,6 +10,8 @@ import BreatheScreen from '../screens/BreatheScreen';
 import ResourceScreen from '../screens/ResourceScreen';
 import AccessScreen from '../screens/AccessScreen';
 import SignInScreen from '../screens/SignInScreen';
+import RegisterScreen from '../screens/RegisterScreen';
+
 
 const Stack = createStackNavigator();
 
@@ -45,6 +47,11 @@ const MainStackNavigator: React.FC = () => {
         name='SignIn'
         component={SignInScreen}
         options={{ title: 'Ascent Mobile - Sign In' }}
+      />
+      <Stack.Screen
+        name='Register'
+        component={RegisterScreen}
+        options={{ title: 'Ascent Mobile - Register' }}
       />
       <Stack.Screen
         name='Home'

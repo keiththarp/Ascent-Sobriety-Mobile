@@ -7,6 +7,8 @@ export type TabNavigatorParamsList = {
   About: undefined
   Breathe: undefined
   Access: undefined
+  SignIn: undefined
+  Register: undefined
 }
 
 export type RootNavigatorParamsList = {
