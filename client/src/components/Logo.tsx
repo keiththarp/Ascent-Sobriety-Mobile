@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
     color: '#cfeed5',
     fontFamily: 'Helvetica',
     fontSize: 20,
-    marginBottom: 70
+    marginBottom: 40
   },
 });
 
