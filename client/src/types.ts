@@ -12,5 +12,9 @@ export type TabNavigatorParamsList = {
 }
 
 export type RootNavigatorParamsList = {
-  Main: NavigatorScreenParams<TabNavigatorParamsList>
+  // Main: NavigatorScreenParams<TabNavigatorParamsList>
+  Access: undefined
+  SignIn: undefined
+  Register: undefined
+  About: undefined
 }

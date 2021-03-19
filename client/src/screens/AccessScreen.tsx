@@ -13,7 +13,7 @@ import Logo from '../components/Logo';
 import { RootNavigatorParamsList, TabNavigatorParamsList } from '../types'
 
 interface AccessScreenProps {
-  navigation: StackNavigationProp<TabNavigatorParamsList, 'Access'>
+  navigation: StackNavigationProp<RootNavigatorParamsList, 'Access'>
 }
 
 const AccessScreen: React.FC<AccessScreenProps> = ({ navigation }) => {

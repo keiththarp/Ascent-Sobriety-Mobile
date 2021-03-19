@@ -8,6 +8,7 @@ import { StyleSheet, Text, View } from 'react-native';
 
 import BottomTabNavigator from './src/navigation/TabNavigator';
 import MainStackNavigator from './src/navigation/MainStackNavigator';
+import RootStackNavigator from './src/navigation/RootStackNavigator';
 import Colors from './src/constants/Colors.json';
 
 
@@ -20,7 +21,8 @@ export default function App() {
     <>
       <NavigationContainer theme={navTheme}>
         {/* <MainStackNavigator /> */}
-        <BottomTabNavigator />
+        {/* <BottomTabNavigator /> */}
+        <RootStackNavigator />
       </NavigationContainer>
     </>
   );
