@@ -21,8 +21,8 @@ export default function App() {
     <>
       <NavigationContainer theme={navTheme}>
         {/* <MainStackNavigator /> */}
-        {/* <BottomTabNavigator /> */}
-        <RootStackNavigator />
+        <BottomTabNavigator />
+        {/* <RootStackNavigator /> */}
       </NavigationContainer>
     </>
   );
