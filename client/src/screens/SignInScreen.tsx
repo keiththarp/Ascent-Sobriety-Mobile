@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { StatusBar } from 'expo-status-bar';
 //import AppLoading from 'expo-app-loading';
 import { Text, View, TouchableOpacity, StyleSheet, TextInput, KeyboardAvoidingView, Platform, Animated, Keyboard, TouchableWithoutFeedback } from 'react-native';
@@ -14,6 +14,8 @@ import Logo from '../components/Logo';
 import { RootNavigatorParamsList, TabNavigatorParamsList } from '../types'
 // import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 
+import { AuthContext } from '../components/context';
+
 interface SignInScreenProps {
   navigation: StackNavigationProp<TabNavigatorParamsList, 'SignIn'>
 }
@@ -21,6 +23,8 @@ interface SignInScreenProps {
 const SignInScreen: React.FC<SignInScreenProps> = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const { signIn } = useContext(AuthContext);
 
   return (
     <KeyboardAvoidingView
@@ -49,7 +53,7 @@ const SignInScreen: React.FC<SignInScreenProps> = ({ navigation }) => {
             </View>
             <TouchableOpacity
               style={styles.buttonContainer}
-              onPress={() => navigation.navigate('SignIn')}
+              onPress={() => navigation.navigate(signIn())}
             >
               <Text style={styles.buttonText}>Sign In</Text>
             </TouchableOpacity>
