@@ -1,13 +1,13 @@
 interface IUser {
-  _id: string;
+  _id?: string;
   email: string;
   password: string;
   name: string;
   initialSobrietyDate: string;
-  totalSoberDays: number;
-  newSobrietyDate: string;
-  consecutiveSoberDays: number;
-  profileImage: string;
+  totalSoberDays?: number;
+  newSobrietyDate?: string;
+  consecutiveSoberDays?: number;
+  profileImage?: string;
 };
 
 interface IResource {

@@ -9,6 +9,7 @@ import Card from '../components/Card';
 import Logo from '../components/Logo';
 
 import { RootNavigatorParamsList, TabNavigatorParamsList } from '../types'
+import { signUpUserAPI } from '../utils/api/userAPI';
 
 interface RegisterScreenProps {
   navigation: StackNavigationProp<TabNavigatorParamsList, 'Register'>
@@ -19,6 +20,16 @@ const RegisterScreen: React.FC<RegisterScreenProps> = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [sobrietyDate, setSobrietyDate] = useState('');
+
+  const registerUser = () => {
+   
+    signUpUserAPI({email: email, password: password, name: firstName, initialSobrietyDate: sobrietyDate})
+    .then((response) => {
+      console.log(response);
+    })
+    .catch(err => console.error(err));
+    
+  };
 
   return (
     <Canvas>
@@ -50,7 +61,7 @@ const RegisterScreen: React.FC<RegisterScreenProps> = ({ navigation }) => {
         </View>
         <TouchableOpacity
           style={styles.buttonContainer}
-          onPress={() => navigation.navigate('Register')}
+          onPress={() => registerUser()}
         >
           <Text style={styles.buttonText}>Sign Up</Text>
         </TouchableOpacity>
