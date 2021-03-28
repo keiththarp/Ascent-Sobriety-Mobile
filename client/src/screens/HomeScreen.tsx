@@ -37,17 +37,23 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
         >
           <Text style={styles.buttonText}>Go To Resources Screen</Text>
         </TouchableOpacity>
-        <TouchableOpacity
+        {/* <TouchableOpacity
           style={styles.buttonContainer}
           onPress={() => navigation.navigate('About')}
         >
           <Text style={styles.buttonText}>Go To About Screen</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
         <TouchableOpacity
           style={styles.buttonContainer}
           onPress={() => navigation.navigate('Breathe')}
         >
           <Text style={styles.buttonText}>Go To Breathe Screen</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.buttonContainer}
+          onPress={() => navigation.navigate('Access')}
+        >
+          <Text style={styles.buttonText}>Go To Access Screen</Text>
         </TouchableOpacity>
       </View>
     </Canvas>

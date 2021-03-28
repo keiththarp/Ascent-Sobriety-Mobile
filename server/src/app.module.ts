@@ -4,6 +4,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
+
 import { User } from './user/user.entity';
 import { QuoteSelection } from './quote-selection/quote-selection.entity';
 import { Resource } from './resources/resources.entity';
@@ -16,6 +17,9 @@ import { QuoteSelectionModule } from './quote-selection/quote-selection.module';
 import { ResourcesModule } from './resources/resources.module';
 import { JournalEntryModule } from './journal-entry/journal-entry.module';
 import { TrophyCaseModule } from './trophy-case/trophy-case.module';
+import { AuthModule } from './auth/auth.module';
+import { APP_GUARD } from '@nestjs/core';
+import { JwtAuthGuard } from './auth/jwt-auth.guard';
 
 @Module({
   imports: [
@@ -33,7 +37,8 @@ import { TrophyCaseModule } from './trophy-case/trophy-case.module';
     QuoteSelectionModule,
     ResourcesModule,
     JournalEntryModule,
-    TrophyCaseModule
+    TrophyCaseModule,
+    AuthModule
   ],
   controllers: [AppController],
   providers: [AppService],

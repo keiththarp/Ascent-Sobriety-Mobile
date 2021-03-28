@@ -6,8 +6,15 @@ export type TabNavigatorParamsList = {
   Resources: undefined
   About: undefined
   Breathe: undefined
+  Access: undefined
+  SignIn: undefined
+  Register: undefined
 }
 
 export type RootNavigatorParamsList = {
-  Main: NavigatorScreenParams<TabNavigatorParamsList>
+  // Main: NavigatorScreenParams<TabNavigatorParamsList>
+  Access: undefined
+  SignIn: undefined
+  Register: undefined
+  About: undefined
 }

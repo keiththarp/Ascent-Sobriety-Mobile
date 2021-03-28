@@ -7,7 +7,7 @@ export class User {
   @PrimaryGeneratedColumn("uuid")
   _id: string;
 
-  @Column()
+  @Column({unique: true})
   email: string;
 
   @Column()
@@ -19,16 +19,24 @@ export class User {
   @Column()
   initialSobrietyDate: Date;
 
-  @Column()
+  @Column({
+    default: 0
+  })
   totalSoberDays: number;
 
-  @Column()
+  @Column({
+    nullable: true
+  })
   newSobrietyDate: Date;
 
-  @Column()
+  @Column({
+    default: 0
+  })
   consecutiveSoberDays: number;
 
-  @Column()
+  @Column({
+    nullable: true
+  })
   profileImage: string;
 
   @OneToMany(() => JournalEntry, journalEntry => journalEntry.user)
