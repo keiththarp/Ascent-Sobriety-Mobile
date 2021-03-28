@@ -2,6 +2,9 @@ import axios from 'axios';
 import { IUser } from "../../interfaces/interfaces";
 import { API_URL } from "@env";
 
+// import { API_URL } from 'react-native-dotenv';
+
+
 const userAPI = () => {
   fetch(`${process.env.API_URL}/users`)
     .then(response => {
