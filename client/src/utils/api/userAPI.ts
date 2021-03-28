@@ -11,7 +11,9 @@ const userAPI = () => {
 }
 
 export const signUpUserAPI = (user: IUser) => {
-    return axios.post(`${API_URL}/auth/signup`,user);
+  return axios.post(`${API_URL}/auth/signup`, user);
+  // return axios.post(`http://ascentsobrietymobile-env.eba-rw6cfpmf.us-east-2.elasticbeanstalk.com/auth/signup`, user);
+
 
 }
 
