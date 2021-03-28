@@ -21,7 +21,7 @@ interface IResource {
 
 interface IJournalEntry {
   _id?: string;
-  title: string;
+  title?: string;
   date: string;
   journalEntry: string;
   sobrietyMaintained: boolean;
