@@ -11,5 +11,5 @@
   }, 
   "include": ["./src"],
   "exclude": ["./node_modules"],
-  // "typeRoots": ["./src/types"]
+  "typeRoots": ["./src/types"]
 }
