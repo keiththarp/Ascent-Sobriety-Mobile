@@ -2,6 +2,7 @@ import axios from 'axios';
 import { IUser } from "../../interfaces/interfaces";
 import { API_URL } from "@env";
 
+
 const userAPI = () => {
   fetch(`${process.env.API_URL}/users`)
     .then(response => {
