@@ -15,3 +15,7 @@ export const signUpUserAPI = (user: IUser) => {
 
 }
 
+export const signInUserAPI = (email: string, password: string) => {
+  return axios.post(`${API_URL}/auth/login`, { email, password});
+}
+
