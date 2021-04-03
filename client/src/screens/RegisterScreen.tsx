@@ -9,7 +9,7 @@ import Card from '../components/Card';
 import Logo from '../components/Logo';
 
 import { RootNavigatorParamsList, TabNavigatorParamsList } from '../types'
-import { signUpUserAPI } from '../utils/api/userAPI';
+import UserAPI from '../utils/api/userAPI';
 
 interface RegisterScreenProps {
   navigation: StackNavigationProp<TabNavigatorParamsList, 'Register'>
@@ -23,7 +23,7 @@ const RegisterScreen: React.FC<RegisterScreenProps> = ({ navigation }) => {
 
   const registerUser = () => {
    
-    signUpUserAPI({email: email, password: password, name: firstName, initialSobrietyDate: sobrietyDate})
+    UserAPI.signUp({email: email, password: password, name: firstName, initialSobrietyDate: sobrietyDate})
     .then((response) => {
       console.log(response);
     })
