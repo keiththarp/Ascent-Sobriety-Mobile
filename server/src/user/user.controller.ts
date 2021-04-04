@@ -14,11 +14,11 @@ export class UserController {
         return this.userService.create(createUserDTO);
     }
 
-    @UseGuards(JwtAuthGuard)
-    @Get()
-    findAll(): Promise<User[]> {
-        return this.userService.findAll();
-    }
+    // @UseGuards(JwtAuthGuard)
+    // @Get()
+    // findAll(): Promise<User[]> {
+    //     return this.userService.findAll();
+    // }
 
     @UseGuards(JwtAuthGuard)
     @Get(':id')

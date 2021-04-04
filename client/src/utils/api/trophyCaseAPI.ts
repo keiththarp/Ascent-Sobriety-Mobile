@@ -11,6 +11,14 @@ export default {
         });
     },
 
+    getOne: (id: string, JWT_TOKEN: string) => {
+        return axios.get(`${API_URL}/api/trophy-case/singleTrophy/${id}`, {
+            headers: {
+                'Authorization': `Bearer ${JWT_TOKEN}`
+            }
+        });
+    },
+
     create : (trophy: ITrophy, JWT_TOKEN: string) => {
         return axios.post(`${API_URL}/api/trophy-case`, trophy, {
             headers: {

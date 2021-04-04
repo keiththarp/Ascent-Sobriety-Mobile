@@ -25,6 +25,14 @@ export default {
                 'Authorization': `Bearer ${JWT_TOKEN}`
             }
         });
+    },
+
+    getOne : (id: string, JWT_TOKEN: string) => {
+        return axios.get(`${API_URL}/api/journal-entry/singleEntry/${id}`, {
+            headers: {
+                'Authorization': `Bearer ${JWT_TOKEN}`
+            }
+        })
     }
 
 }
