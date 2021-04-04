@@ -26,6 +26,7 @@ const MainStackNavigator: React.FC = () => {
     // <NavigationContainer
     //   theme={navTheme}
     // >
+
     <Stack.Navigator
       initialRouteName='Home'
       screenOptions={{
@@ -38,21 +39,6 @@ const MainStackNavigator: React.FC = () => {
         },
       }}
     >
-      <Stack.Screen
-        name='Access'
-        component={AccessScreen}
-        options={{ title: 'Ascent Mobile' }}
-      />
-      <Stack.Screen
-        name='SignIn'
-        component={SignInScreen}
-        options={{ title: 'Ascent Mobile - Sign In' }}
-      />
-      <Stack.Screen
-        name='Register'
-        component={RegisterScreen}
-        options={{ title: 'Ascent Mobile - Register' }}
-      />
       <Stack.Screen
         name='Home'
         component={HomeScreen}
@@ -78,7 +64,21 @@ const MainStackNavigator: React.FC = () => {
         component={BreatheScreen}
         options={{ title: 'Breathe Screen' }}
       />
-
+      <Stack.Screen
+        name='Access'
+        component={AccessScreen}
+        options={{ title: 'Ascent Mobile' }}
+      />
+      <Stack.Screen
+        name='SignIn'
+        component={SignInScreen}
+        options={{ title: 'Ascent Mobile - Sign In' }}
+      />
+      <Stack.Screen
+        name='Register'
+        component={RegisterScreen}
+        options={{ title: 'Ascent Mobile - Register' }}
+      />
     </Stack.Navigator>
     // </NavigationContainer>
   )
@@ -88,3 +88,31 @@ export default MainStackNavigator;
 
 //This was helpful:
 //https://heartbeat.fritz.ai/getting-started-with-stack-navigator-using-react-navigation-5-in-react-native-and-expo-apps-4c516becaee1
+
+/*
+if (state.isLoading) {
+  // We haven't finished checking for the token yet
+  return <SplashScreen />;
+}
+
+return (
+  <Stack.Navigator>
+    {state.userToken == null ? (
+      // No token found, user isn't signed in
+      <Stack.Screen
+        name="SignIn"
+        component={SignInScreen}
+        options={{
+          title: 'Sign in',
+          // When logging out, a pop animation feels intuitive
+          // You can remove this if you want the default 'push' animation
+          animationTypeForReplace: state.isSignout ? 'pop' : 'push',
+        }}
+      />
+    ) : (
+      // User is signed in
+      <Stack.Screen name="Home" component={HomeScreen} />
+    )}
+  </Stack.Navigator>
+);
+*/
