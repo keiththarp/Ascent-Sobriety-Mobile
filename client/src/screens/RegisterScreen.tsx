@@ -22,13 +22,13 @@ const RegisterScreen: React.FC<RegisterScreenProps> = ({ navigation }) => {
   const [sobrietyDate, setSobrietyDate] = useState('');
 
   const registerUser = () => {
-   
-    signUpUserAPI({email: email, password: password, name: firstName, initialSobrietyDate: sobrietyDate})
-    .then((response) => {
-      console.log(response);
-    })
-    .catch(err => console.error(err));
-    
+
+    signUpUserAPI({ email: email, password: password, name: firstName, initialSobrietyDate: sobrietyDate })
+      .then((response) => {
+        console.log(response);
+      })
+      .catch(err => console.error(err));
+
   };
 
   return (
@@ -55,7 +55,7 @@ const RegisterScreen: React.FC<RegisterScreenProps> = ({ navigation }) => {
         </View>
         <View style={styles.textInput}>
           <TextInput
-            placeholder="mm/dd/yyy"
+            placeholder="yyyy-mm-dd"
             onChangeText={sobrietyDate => setSobrietyDate(sobrietyDate)}
           />
         </View>
