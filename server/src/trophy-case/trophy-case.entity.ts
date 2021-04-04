@@ -1,5 +1,5 @@
 import { User } from 'src/user/user.entity';
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany, ManyToOne } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
 
 @Entity()
 export class TrophyCase {
@@ -12,7 +12,9 @@ export class TrophyCase {
     @Column()
     startDate: Date;
 
-    @Column()
+    @Column({
+        nullable: true
+    })
     endDate: Date;
 
     @ManyToOne(() => User, user => user.trophyCases)

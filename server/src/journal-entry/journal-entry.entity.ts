@@ -7,9 +7,6 @@ export class JournalEntry {
     _id: string;
 
     @Column()
-    title: string;
-
-    @Column()
     date: Date;
 
     @Column()

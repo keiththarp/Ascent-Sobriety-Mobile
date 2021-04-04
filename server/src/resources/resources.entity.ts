@@ -14,12 +14,18 @@ export class Resource {
     @Column()
     linkToResource: string;
 
-    @Column()
+    @Column({
+        nullable: true
+    })
     imageLink: string;
 
-    @Column()
+    @Column({
+        nullable: true
+    })
     phoneNumber: number;
 
-    @Column()
+    @Column({
+        nullable: true
+    })
     category: number;
 }

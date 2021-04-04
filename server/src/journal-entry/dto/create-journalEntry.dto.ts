@@ -6,9 +6,6 @@ export class CreateJournalEntryDTO {
     _id: string;
 
     @ApiProperty()
-    title: string;
-
-    @ApiProperty()
     date: Date;
 
     @ApiProperty()

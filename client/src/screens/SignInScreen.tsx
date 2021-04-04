@@ -12,6 +12,7 @@ import Card from '../components/Card';
 import Logo from '../components/Logo';
 
 import { RootNavigatorParamsList, TabNavigatorParamsList } from '../types'
+import { signInUserAPI } from '../utils/api/userAPI';
 // import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 
 interface SignInScreenProps {
@@ -21,6 +22,14 @@ interface SignInScreenProps {
 const SignInScreen: React.FC<SignInScreenProps> = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const signInUser = () => {
+    signInUserAPI(email, password)
+    .then((response) => {
+      console.log(response);
+    })
+    .catch(err => console.error(err));
+  }
 
   return (
     <KeyboardAvoidingView
@@ -49,7 +58,7 @@ const SignInScreen: React.FC<SignInScreenProps> = ({ navigation }) => {
             </View>
             <TouchableOpacity
               style={styles.buttonContainer}
-              onPress={() => navigation.navigate('SignIn')}
+              onPress={() => signInUser()}
             >
               <Text style={styles.buttonText}>Sign In</Text>
             </TouchableOpacity>
