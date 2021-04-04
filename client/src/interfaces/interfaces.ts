@@ -11,7 +11,7 @@ interface IUser {
 };
 
 interface IResource {
-  _id: string;
+  _id?: string;
   title: string;
   introText: string;
   linkToResource: string;
@@ -19,4 +19,14 @@ interface IResource {
   phoneNumber: number;
 };
 
-export { IUser, IResource };
+interface IJournalEntry {
+  _id?: string;
+  title?: string;
+  date: string;
+  journalEntry: string;
+  sobrietyMaintained: boolean;
+  vibeCheck: number;
+  currentDayOfSobriety: number;
+}
+
+export { IUser, IResource, IJournalEntry };

@@ -14,7 +14,6 @@ export class JournalEntryService {
     create(createJournalEntryDTO: CreateJournalEntryDTO): Promise<JournalEntry> {
         const journalEntry = new JournalEntry();
         journalEntry._id = createJournalEntryDTO._id;
-        journalEntry.title = createJournalEntryDTO.title;
         journalEntry.date = createJournalEntryDTO.date;
         journalEntry.journalEntry = createJournalEntryDTO.journalEntry;
         journalEntry.user = createJournalEntryDTO.user;
