@@ -22,8 +22,12 @@ export class TrophyCaseService {
         return this.trophyCaseRepository.save(trophy);
     }
 
-    findAll(): Promise<TrophyCase[]> {
-        return this.trophyCaseRepository.find();
+    findAll(userID: string): Promise<TrophyCase[]> {
+        return this.trophyCaseRepository.find({
+            where: {
+                user: userID
+            }
+        });
     }
 
     findOne(id: string): Promise<TrophyCase> {

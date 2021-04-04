@@ -21,7 +21,7 @@ export class JournalEntryController {
     }
 
     @UseGuards(JwtAuthGuard)
-    @Get(':id')
+    @Get('singleEntry/:id')
     findOne(@Param('id') id: string): Promise<JournalEntry> {
         return this.journalEntryService.findOne(id);
     }
