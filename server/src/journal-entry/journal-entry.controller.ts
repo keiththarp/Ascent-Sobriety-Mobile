@@ -15,13 +15,13 @@ export class JournalEntryController {
     }
 
     @UseGuards(JwtAuthGuard)
-    @Get()
-    findAll(): Promise<JournalEntry[]> {
-        return this.journalEntryService.findAll();
+    @Get(':userID')
+    findAll(@Param('userID') userID: string): Promise<JournalEntry[]> {
+        return this.journalEntryService.findAll(userID);
     }
 
     @UseGuards(JwtAuthGuard)
-    @Get(':id')
+    @Get('singleEntry/:id')
     findOne(@Param('id') id: string): Promise<JournalEntry> {
         return this.journalEntryService.findOne(id);
     }

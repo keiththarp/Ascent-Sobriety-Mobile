@@ -24,8 +24,12 @@ export class JournalEntryService {
         return this.journalEntryRepository.save(journalEntry);
     }
 
-    findAll(): Promise<JournalEntry[]> {
-        return this.journalEntryRepository.find();
+    findAll(userID: string): Promise<JournalEntry[]> {
+        return this.journalEntryRepository.find({
+            where: {
+                user: userID
+            }
+        });
     }
 
     findOne(id: string): Promise<JournalEntry> {

@@ -12,7 +12,7 @@ import Card from '../components/Card';
 import Logo from '../components/Logo';
 
 import { RootNavigatorParamsList, TabNavigatorParamsList } from '../types'
-import { signInUserAPI } from '../utils/api/userAPI';
+import UserAPI from '../utils/api/userAPI';
 // import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 
 interface SignInScreenProps {
@@ -24,7 +24,7 @@ const SignInScreen: React.FC<SignInScreenProps> = ({ navigation }) => {
   const [password, setPassword] = useState('');
 
   const signInUser = () => {
-    signInUserAPI(email, password)
+    UserAPI.signIn(email, password)
     .then((response) => {
       console.log(response);
     })

@@ -28,9 +28,9 @@ export class UserService {
         return this.usersRepository.save(user);
     }
 
-    findAll(): Promise<User[]> {
-        return this.usersRepository.find();
-    }
+    // findAll(): Promise<User[]> {
+    //     return this.usersRepository.find();
+    // }
 
     findOne(id: string): Promise<User> {
         return this.usersRepository.findOne(id);

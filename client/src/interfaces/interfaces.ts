@@ -27,6 +27,15 @@ interface IJournalEntry {
   sobrietyMaintained: boolean;
   vibeCheck: number;
   currentDayOfSobriety: number;
+  user: string;
+};
+
+interface ITrophy {
+  _id?: string;
+  daysSober: number;
+  startDate: Date;
+  endDate?: Date;
+  user: string;
 }
 
-export { IUser, IResource, IJournalEntry };
+export { IUser, IResource, IJournalEntry, ITrophy };

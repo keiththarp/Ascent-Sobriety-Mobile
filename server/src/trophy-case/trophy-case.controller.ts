@@ -15,13 +15,13 @@ export class TrophyCaseController {
     }
 
     @UseGuards(JwtAuthGuard)
-    @Get()
-    findAll(): Promise<TrophyCase[]> {
-        return this.trophyCaseService.findAll();
+    @Get(':userID')
+    findAll(@Param('userID') userID: string): Promise<TrophyCase[]> {
+        return this.trophyCaseService.findAll(userID);
     }
 
     @UseGuards(JwtAuthGuard)
-    @Get(':id')
+    @Get('singleTrophy/:id')
     findOne(@Param('id') id: string): Promise<TrophyCase> {
         return this.trophyCaseService.findOne(id);
     }
