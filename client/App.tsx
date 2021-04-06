@@ -9,6 +9,7 @@ import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
 import BottomTabNavigator from './src/navigation/TabNavigator';
 import MainStackNavigator from './src/navigation/MainStackNavigator';
 import RootStackNavigator from './src/navigation/RootStackNavigator';
+
 import Colors from './src/constants/Colors.json';
 import Canvas from './src/components/Canvas';
 
@@ -21,7 +22,7 @@ navTheme.colors.background = Colors.primary;
 export default function App() {
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(true);
 
   if (isLoading) {
     return (
